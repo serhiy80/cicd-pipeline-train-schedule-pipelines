@@ -12,7 +12,12 @@ pipeline {
             checkout scm
           }    
         }
-
+        stage('Build') {
+          steps {  
+            zip zipFile: 'deploy.zip', archive: false, dir: 'test'
+            archiveArtifacts artifacts: 'deploy.zip'
+          }   
+        }
         
     }
 }
