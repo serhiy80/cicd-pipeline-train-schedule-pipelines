@@ -2,9 +2,6 @@ pipeline {
     agent any
     stages {
         stage('Staging') {
-            when {
-                branch 'master'
-            }
             steps {
                     sshPublisher(
                         failOnError: true,
