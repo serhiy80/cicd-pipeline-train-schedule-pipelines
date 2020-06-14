@@ -14,10 +14,7 @@ pipeline {
         }
         stage('Build') {
           steps {  
-            script{  
-              zip zipFile: 'deploy.zip', archive: true, dir: 'test'
-            }  
-              archiveArtifacts artifacts: 'deploy.zip', onlyIfSuccessful: true   
+              archiveArtifacts artifacts: '**', onlyIfSuccessful: true   
           }   
         }
         
