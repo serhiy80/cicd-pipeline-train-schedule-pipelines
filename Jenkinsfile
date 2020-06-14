@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build') {
           steps {  
-            zip zipFile: 'deploy.zip', archive: true, dir: 'test'
+            zip archive: true, dir: 'test', glob: '', zipFile: 'deploy.zip'  
             archiveArtifacts artifacts: 'deploy.zip'
           }   
         }
