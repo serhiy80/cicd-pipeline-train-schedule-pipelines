@@ -1,17 +1,6 @@
 pipeline {
     agent any
-
     stages {
-        stage('Clean') {
-          steps {  
-            cleanWs()
-          }    
-        }
-        stage('Checkout') {
-          steps {  
-            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github_key', url: 'git@github.com:serhiy80/cicd-pipeline-train-schedule-pipelines.git']]])
-          }    
-        }
         stage('Staging') {
             when {
                 branch 'master'
@@ -50,5 +39,10 @@ pipeline {
                     )
             }        
         }
+        stage('Clean') {
+          steps {  
+            cleanWs()
+          }    
+        }       
     }
 }
