@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Checkout') {
           steps {  
-            checkout scm
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github_key', url: 'git@github.com:serhiy80/cicd-pipeline-train-schedule-pipelines.git']]])
           }    
         }
         stage('Staging') {
