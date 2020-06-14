@@ -33,7 +33,17 @@ pipeline {
                                         sourceFiles: 'gradle/wrapper/gradle-wrapper.jar',
                                         removePrefix: 'gradle/wrapper/',
                                         remoteDirectory: '/'
-                                    )
+                                    ),
+                                    sshTransfer(
+                                        sourceFiles: 'routes/index.js',
+                                        removePrefix: 'index.js',
+                                        remoteDirectory: '/'
+                                    ),
+                                    sshTransfer(
+                                        sourceFiles: 'test/index.test.js',
+                                        removePrefix: 'test',
+                                        remoteDirectory: '/'
+                                    ),
                                 ]
                             )
                         ]
