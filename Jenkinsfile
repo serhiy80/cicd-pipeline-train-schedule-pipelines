@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Build') { 
           steps {  
-              archiveArtifacts artifacts: 'gradle-wrapper.jar, routes/index.js, test/index.test.js'
+              archiveArtifacts artifacts: 'gradle/wrapper/gradle-wrapper.jar, routes/index.js, test/index.test.js'
           }   
         }
         
