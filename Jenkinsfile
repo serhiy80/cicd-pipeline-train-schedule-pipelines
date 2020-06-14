@@ -1,4 +1,3 @@
-@Library('github.com/releaseworks/jenkinslib') _
 pipeline {
     agent any
 
@@ -19,11 +18,32 @@ pipeline {
           }   
         }
         stage('Staging') {
-          steps {
-            withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'aws-key', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-        AWS("--region=us-east-1 s3 ls")
-    }
-          }
+            when {
+                branch 'master'
+            }
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
+                    sshPublisher(
+                        failOnError: true,
+                        continueOnError: false,
+                        publishers: [
+                            sshPublisherDesc(
+                                configName: 'staging',
+                                sshCredentials: [
+                                    username: "$USERNAME",
+                                    encryptedPassphrase: "$USERPASS"
+                                ], 
+                                transfers: [
+                                    sshTransfer(
+                                        sourceFiles: 'gradle/wrapper/gradle-wrapper.jar',
+                                        removePrefix: 'gradle/wrapper/',
+                                        remoteDirectory: '/tmp'
+                                    )
+                                ]
+                            )
+                        ]
+                    )
+                }          
         }
     }
 }
