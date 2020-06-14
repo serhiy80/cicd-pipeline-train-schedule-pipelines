@@ -4,8 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Clone the repository"
+                archiveArtifacts artifacts: '**/*.*', excludes: 'routes/*.*'
             }
         }
+        
     }
 }
