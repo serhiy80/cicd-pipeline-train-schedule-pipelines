@@ -28,10 +28,6 @@ pipeline {
                         publishers: [
                             sshPublisherDesc(
                                 configName: 'dev',
-                                sshCredentials: [
-                                    username: "$USERNAME",
-                                    encryptedPassphrase: "$USERPASS"
-                                ], 
                                 transfers: [
                                     sshTransfer(
                                         sourceFiles: 'gradle/wrapper/gradle-wrapper.jar',
