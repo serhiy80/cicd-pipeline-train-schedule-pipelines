@@ -13,6 +13,9 @@ pipeline {
           }    
         }
         stage('Build') {
+          script{
+                    zip archive: true, dir: 'views', glob: '', zipFile: 'deploy.zip'
+                }   
           steps {  
               archiveArtifacts artifacts: '**', onlyIfSuccessful: true   
           }   
