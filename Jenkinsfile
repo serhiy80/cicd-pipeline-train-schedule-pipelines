@@ -7,10 +7,10 @@ pipeline {
                 echo "Clone the repository"
             }
         }
-        stage('Clear dir') {
-            steps {
-                deleteDir()
-            }
-        }
+#        stage('Clear dir') {
+#            steps {
+#                deleteDir()
+#            }
+#        }
     }
 }
