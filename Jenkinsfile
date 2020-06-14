@@ -32,7 +32,7 @@ pipeline {
                                     sshTransfer(
                                         sourceFiles: 'gradle/wrapper/gradle-wrapper.jar',
                                         removePrefix: 'gradle/wrapper/',
-                                        remoteDirectory: '/tmp'
+                                        remoteDirectory: '/'
                                     )
                                 ]
                             )
