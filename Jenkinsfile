@@ -12,12 +12,12 @@ pipeline {
             checkout scm
           }    
         }
-        stage('Build') {
-          script{
-                    zip archive: true, dir: 'views', glob: '', zipFile: 'deploy.zip'
-                }   
+        stage('Build') { 
           steps {  
-              archiveArtifacts artifacts: '**', onlyIfSuccessful: true   
+              archiveArtifacts artifacts: '**', onlyIfSuccessful: true 
+              script{
+                    zip archive: true, dir: 'views', glob: '', zipFile: 'deploy.zip'
+                }  
           }   
         }
         
