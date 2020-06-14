@@ -2,10 +2,15 @@ pipeline {
     agent any
 
     stages {
+        stage('Clean') {
+            cleanWs()
+        }
+        stage('Checkout') {
+            checkout scm
+        }
         stage('Build') {
-            steps {
-                archiveArtifacts artifacts: '**', excludes: 'routes/*.*'
-            }
+            zip zipFile: 'deploy.zip', archive: false, dir: '**'
+            archiveArtifacts artifacts: 'deploy.zip'
         }
         
     }
