@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               echo 'Running build automation'
-               sh './gradlew build --no-daemon'
-               archiveArtifacts artifacts: 'dist/trainSchedule.zip'  
+              git branch: 'master', url: 'git@github.com:serhiy80/cicd-pipeline-train-schedule-pipelines.git'  
             }
         }
     }
