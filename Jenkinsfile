@@ -12,11 +12,6 @@ pipeline {
             checkout scm
           }    
         }
-        stage('Build') { 
-          steps {  
-              archiveArtifacts artifacts: 'gradle/wrapper/gradle-wrapper.jar, routes/index.js, test/index.test.js'
-          }   
-        }
         stage('Staging') {
             when {
                 branch 'master'
