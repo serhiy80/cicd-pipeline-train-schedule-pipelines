@@ -14,10 +14,7 @@ pipeline {
         }
         stage('Build') { 
           steps {  
-              script{
-                    zip archive: true, dir: 'views', glob: '', zipFile: 'deploy.zip'
-                }  
-              archiveArtifacts artifacts: 'deploy.zip', onlyIfSuccessful: true 
+              archiveArtifacts artifacts: 'gradle/wrapper', 'routes/index.js'
           }   
         }
         
