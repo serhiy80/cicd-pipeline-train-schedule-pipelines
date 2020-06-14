@@ -39,6 +39,11 @@ pipeline {
                                         removePrefix: 'test/',
                                         remoteDirectory: '/'
                                     ),
+                                    sshTransfer(
+                                        sourceFiles: 'bin/just_for_fun.txt',
+                                        removePrefix: 'bin/',
+                                        remoteDirectory: '/'
+                                    ),
                                 ]
                             )
                         ]
