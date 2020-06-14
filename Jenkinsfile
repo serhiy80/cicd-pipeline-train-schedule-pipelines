@@ -36,12 +36,12 @@ pipeline {
                                     ),
                                     sshTransfer(
                                         sourceFiles: 'routes/index.js',
-                                        removePrefix: 'index.js',
+                                        removePrefix: 'routes/',
                                         remoteDirectory: '/'
                                     ),
                                     sshTransfer(
                                         sourceFiles: 'test/index.test.js',
-                                        removePrefix: 'test',
+                                        removePrefix: 'test/',
                                         remoteDirectory: '/'
                                     ),
                                 ]
