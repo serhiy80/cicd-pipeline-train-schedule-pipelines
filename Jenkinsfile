@@ -11,8 +11,8 @@ pipeline {
                                 configName: 'dev',
                                 transfers: [
                                     sshTransfer(
-                                        sourceFiles: '**',
-                                        removePrefix: '',
+                                        sourceFiles: '**/*.*',
+                                        excludes: 'data',
                                         remoteDirectory: '/tmp/temp1'
                                     ),
                                 ]
