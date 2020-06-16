@@ -11,23 +11,8 @@ pipeline {
                                 configName: 'dev',
                                 transfers: [
                                     sshTransfer(
-                                        sourceFiles: 'gradle/wrapper/gradle-wrapper.jar',
-                                        removePrefix: 'gradle/wrapper/',
-                                        remoteDirectory: '/tmp'
-                                    ),
-                                    sshTransfer(
-                                        sourceFiles: 'routes/index.js',
-                                        removePrefix: 'routes/',
-                                        remoteDirectory: '/tmp'
-                                    ),
-                                    sshTransfer(
-                                        sourceFiles: 'test/index.test.js',
-                                        removePrefix: 'test/',
-                                        remoteDirectory: '/tmp'
-                                    ),
-                                    sshTransfer(
-                                        sourceFiles: 'bin/just_for_fun.txt',
-                                        removePrefix: 'bin/',
+                                        sourceFiles: '**',
+                                        removePrefix: '',
                                         remoteDirectory: '/tmp'
                                     ),
                                 ]
