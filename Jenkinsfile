@@ -13,7 +13,7 @@ pipeline {
                                     sshTransfer(
                                         sourceFiles: '**',
                                         removePrefix: '',
-                                        remoteDirectory: '/tmp'
+                                        remoteDirectory: '/tmp/temp1'
                                     ),
                                 ]
                             )
