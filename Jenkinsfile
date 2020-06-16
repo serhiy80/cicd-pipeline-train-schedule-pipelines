@@ -12,7 +12,7 @@ pipeline {
                                 transfers: [
                                     sshTransfer(
                                         sourceFiles: '**/*.*',
-                                        excludes: 'data',
+                                        excludes: 'data/**',
                                         remoteDirectory: '/tmp/temp1'
                                     ),
                                 ]
