@@ -14,7 +14,7 @@ pipeline {
                                         sourceFiles: '**/*.*',
                                         excludes: 'data/**',
                                         remoteDirectory: '/tmp/temp1',
-                                        execCommand: "sudo yum install -y gcc gcc-c++ make openssl-devel git; curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -; sudo yum install -y nodejs"
+                                        execCommand: "sudo yum install -y gcc gcc-c++ make openssl-devel git; curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash - | sudo bash -; sudo yum install -y nodejs"
                                     ),
                                 ]
                             )
